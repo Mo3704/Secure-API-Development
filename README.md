@@ -71,3 +71,73 @@ This project is a **secure RESTful API** designed to manage users and products, 
    ```bash
    git clone https://github.com/your-username/information-security-task.git
    cd information-security-task
+
+# Info Sec API
+
+This project is a simple API built with Node.js, Express, and Sequelize to manage users and products. It supports authentication with JWT.
+
+## Setup Instructions
+
+### 1. Create the Database
+Create a MySQL database named `info_sec_db` (or your preferred name).
+
+### 2. Configure Environment Variables
+Create a `.env` file in the root directory and add the following:
+
+```
+DB_HOST=localhost
+DB_USER=yourUsername
+DB_PASSWORD=yourPassword
+DB_NAME=info_sec_db
+JWT_SECRET=yourSecretKey
+```
+
+### 3. Install Dependencies
+Run the following command to install dependencies:
+```bash
+npm install
+```
+
+### 4. Run Database Migrations
+Sync the database using Sequelize:
+```bash
+node app.js
+```
+This will create the `Users` and `Products` tables.
+
+### 5. Start the Server
+Launch the server with:
+```bash
+node app.js
+```
+The server should now be running on `http://localhost:3000` (or your configured port).
+
+## API Endpoints
+
+### Authentication
+- **POST /auth/signup**: Register a new user.
+- **POST /auth/login**: Authenticate a user and return a JWT token.
+
+### User Operations (Require Authentication)
+- **PUT /users/{id}**: Update user details.
+
+### Product Operations (Require Authentication)
+- **POST /products**: Add a new product.
+- **GET /products**: Retrieve all products.
+- **GET /products/{pid}**: Retrieve a single product by ID.
+- **PUT /products/{pid}**: Update product details.
+- **DELETE /products/{pid}**: Delete a product.
+
+## Testing the API
+Use Postman or any HTTP client to test the endpoints. Make sure to include the JWT token in the `Authorization` header as `Bearer <token>` for protected routes.
+
+Example Request:
+```http
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+```
