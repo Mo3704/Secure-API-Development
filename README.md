@@ -67,45 +67,40 @@ This project is a **secure RESTful API** designed to manage users and products, 
 
 ### Steps
 
-1. **Clone the Repository**:
+###1. **Clone the Repository**:
    ```bash
    git clone https://github.com/your-username/information-security-task.git
    cd information-security-task
+```
 
-# Info Sec API
+### 2. Create the Database
+Create a MySQL database
 
-This project is a simple API built with Node.js, Express, and Sequelize to manage users and products. It supports authentication with JWT.
-
-## Setup Instructions
-
-### 1. Create the Database
-Create a MySQL database named `info_sec_db` (or your preferred name).
-
-### 2. Configure Environment Variables
+### 3. Configure Environment Variables
 Create a `.env` file in the root directory and add the following:
 
 ```
 DB_HOST=localhost
 DB_USER=yourUsername
 DB_PASSWORD=yourPassword
-DB_NAME=info_sec_db
+DB_NAME=your_db_name
 JWT_SECRET=yourSecretKey
 ```
 
-### 3. Install Dependencies
+### 4. Install Dependencies
 Run the following command to install dependencies:
 ```bash
 npm install
 ```
 
-### 4. Run Database Migrations
+### 5. Run Database Migrations
 Sync the database using Sequelize:
 ```bash
 node app.js
 ```
 This will create the `Users` and `Products` tables.
 
-### 5. Start the Server
+### 6. Start the Server
 Launch the server with:
 ```bash
 node app.js
